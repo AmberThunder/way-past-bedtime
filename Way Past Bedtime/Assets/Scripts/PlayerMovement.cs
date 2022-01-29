@@ -10,8 +10,9 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb2d;
     [SerializeField] float speed = 5;
+    Animator anim;
 
-    Camera cam;
+Camera cam;
 
     public void OnPlayerMovement(InputAction.CallbackContext context)
     {
@@ -22,11 +23,21 @@ public class PlayerMovement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-
+        if(rb2d.velocity.magnitude < .1f)
+        {
+            anim.SetBool("Moving", false);
+        }
+        else
+        {
+            anim.SetBool("Moving", true);
+            anim.SetFloat("Horizontal", rb2d.velocity.x);
+            anim.SetFloat("Vertical", rb2d.velocity.y);
+        }
     }
 
     

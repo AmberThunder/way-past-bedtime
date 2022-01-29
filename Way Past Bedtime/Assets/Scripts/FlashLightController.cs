@@ -10,9 +10,15 @@ public class FlashLightController : MonoBehaviour
 
     public Light2D flashlight;
 
+    public float batteryLife = 100f;
+
+    public float batteryLifeDrainSpeed = 5;
+
     private Controls defaultControls;
 
     bool active = false;
+
+    LightFlicker flicker;
 
     private void Awake()
     {
@@ -33,18 +39,39 @@ public class FlashLightController : MonoBehaviour
     void Start()
     {
         defaultControls.Newactionmap.Flashlight.performed += ToggleFlashLight;
+        flicker = flashlight.GetComponent<LightFlicker>();
+        flicker.minFlicker = 1;
     }
 
     private void ToggleFlashLight(InputAction.CallbackContext context)
     {
-        active = !active;
-        flashlight.gameObject.SetActive(active);
+        if(batteryLife > 0)
+        {
+            active = !active;
+            flashlight.gameObject.SetActive(active);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(active)
+        {
+            if(batteryLife - (batteryLifeDrainSpeed * Time.deltaTime) <= 0)
+            {
+                batteryLife = 0;
+                active = false;
+                flashlight.gameObject.SetActive(active);
+            } else
+            {
+                batteryLife = batteryLife - (batteryLifeDrainSpeed * Time.deltaTime);
+            }
 
+            if (batteryLife < 50)
+            {
+                flicker.minFlicker = batteryLife / 100f;
+            }
+        }
     }
 
 }

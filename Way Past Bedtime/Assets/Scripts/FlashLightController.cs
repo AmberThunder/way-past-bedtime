@@ -10,6 +10,8 @@ public class FlashLightController : MonoBehaviour
 
     public Light2D flashlight;
 
+    public GameObject lightCollider;
+
     private Controls defaultControls;
 
     bool active = false;
@@ -18,6 +20,7 @@ public class FlashLightController : MonoBehaviour
     {
         defaultControls = new Controls();
         flashlight.gameObject.SetActive(active);
+        lightCollider.SetActive(active);
     }
 
     private void OnEnable()
@@ -39,6 +42,8 @@ public class FlashLightController : MonoBehaviour
     {
         active = !active;
         flashlight.gameObject.SetActive(active);
+        lightCollider.SetActive(active);
+
     }
 
     // Update is called once per frame

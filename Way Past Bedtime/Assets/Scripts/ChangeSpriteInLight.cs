@@ -12,6 +12,11 @@ public class ChangeSpriteInLight : MonoBehaviour
     void Start()
     {
         this.GetComponent<SpriteRenderer>().sprite = inDark;
+        if(this.GetComponent<BoxCollider2D>() == null)
+        {
+            this.gameObject.AddComponent<BoxCollider2D>();
+            this.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
     }
 
     // Update is called once per frame

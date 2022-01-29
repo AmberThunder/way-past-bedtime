@@ -9,9 +9,10 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb2d;
+    [SerializeField] float speed = 5;
     public void OnPlayerMovement(InputAction.CallbackContext context)
     {
-        rb2d.velocity = context.ReadValue<Vector2>();
+        rb2d.velocity = context.ReadValue<Vector2>() * speed;
     }
 
     private void Start()

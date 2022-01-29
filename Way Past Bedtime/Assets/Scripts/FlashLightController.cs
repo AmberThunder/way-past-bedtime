@@ -10,14 +10,26 @@ public class FlashLightController : MonoBehaviour
 
     public Light2D flashlight;
 
+    public float batteryLife = 100f;
+
+    public float batteryLifeDrainSpeed = 5;
+
     private Controls defaultControls;
 
+    Rigidbody2D rb2d;
+    Camera cam;
+    Vector2 mousePos;
+
     bool active = false;
+
+    LightFlicker flicker;
 
     private void Awake()
     {
         defaultControls = new Controls();
         flashlight.gameObject.SetActive(active);
+        rb2d = transform.parent.GetComponent<Rigidbody2D>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     private void OnEnable()
@@ -33,18 +45,47 @@ public class FlashLightController : MonoBehaviour
     void Start()
     {
         defaultControls.Newactionmap.Flashlight.performed += ToggleFlashLight;
+        flicker = flashlight.GetComponent<LightFlicker>();
+        flicker.minFlicker = 1;
     }
 
     private void ToggleFlashLight(InputAction.CallbackContext context)
     {
-        active = !active;
-        flashlight.gameObject.SetActive(active);
+        if(batteryLife > 0)
+        {
+            active = !active;
+            flashlight.gameObject.SetActive(active);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        mousePos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        if(active)
+        {
+            if(batteryLife - (batteryLifeDrainSpeed * Time.deltaTime) <= 0)
+            {
+                batteryLife = 0;
+                active = false;
+                flashlight.gameObject.SetActive(active);
+            } else
+            {
+                batteryLife = batteryLife - (batteryLifeDrainSpeed * Time.deltaTime);
+            }
 
+            if (batteryLife < 50)
+            {
+                flicker.minFlicker = batteryLife / 100f;
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 lookDir = mousePos - rb2d.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x)*Mathf.Rad2Deg + 90f;
+        transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
     }
 
 }

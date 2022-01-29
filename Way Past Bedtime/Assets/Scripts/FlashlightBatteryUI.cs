@@ -10,14 +10,15 @@ public class FlashlightBatteryUI : MonoBehaviour
     public Image flashlightOff;
     public Image flashlightBarFill;
 
-    public GameObject flashlight;
+    //public GameObject flashlight;
 
     FlashLightController flashlightController;
 
     // Start is called before the first frame update
     void Start()
     {
-        flashlightController = flashlight.GetComponent<FlashLightController>();
+
+        flashlightController = FindObjectOfType<FlashLightController>();//flashlight.GetComponent<FlashLightController>();
     }
 
     // Update is called once per frame

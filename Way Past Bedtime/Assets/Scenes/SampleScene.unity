@@ -518,6 +518,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 06720765-d097-4ecf-8c08-355f50d77c9e
     m_ActionName: New action map/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a09e6479-9e53-42a9-8021-025e7f4b95b7
+    m_ActionName: New action map/Flashlight[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: New action map
@@ -533,6 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1883388869}
   - component: {fileID: 1883388868}
+  - component: {fileID: 1883388870}
   m_Layer: 0
   m_Name: Global Light
   m_TagString: Untagged
@@ -595,6 +600,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1883388870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883388867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d6b296e8446624f8217f26891f0513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minFlicker: 0.05
+  maxFlicker: 0.5
+  smoothing: 34
 --- !u!1 &2112535987
 GameObject:
   m_ObjectHideFlags: 0

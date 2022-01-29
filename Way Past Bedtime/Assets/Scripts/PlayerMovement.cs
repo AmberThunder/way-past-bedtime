@@ -10,9 +10,9 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb2d;
     [SerializeField] float speed = 5;
+    Animator anim;
 
-    Camera cam;
-    Vector2 mousePos;
+Camera cam;
 
     public void OnPlayerMovement(InputAction.CallbackContext context)
     {
@@ -23,17 +23,22 @@ public class PlayerMovement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        if(rb2d.velocity.magnitude < .1f)
+        {
+            anim.SetBool("Moving", false);
+        }
+        else
+        {
+            anim.SetBool("Moving", true);
+            anim.SetFloat("Horizontal", rb2d.velocity.x);
+            anim.SetFloat("Vertical", rb2d.velocity.y);
+        }
     }
 
-    private void FixedUpdate()
-    {
-        Vector2 lookDir = mousePos - rb2d.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg + 90f;
-        rb2d.rotation = angle;
-    }
+    
 }

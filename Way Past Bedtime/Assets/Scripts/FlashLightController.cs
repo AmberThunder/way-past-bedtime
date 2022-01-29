@@ -20,6 +20,8 @@ public class FlashLightController : MonoBehaviour
     Camera cam;
     Vector2 mousePos;
 
+    public GameObject trigger;
+
     bool active = false;
 
     LightFlicker flicker;
@@ -28,6 +30,7 @@ public class FlashLightController : MonoBehaviour
     {
         defaultControls = new Controls();
         flashlight.gameObject.SetActive(active);
+        trigger.SetActive(active);
         rb2d = transform.parent.GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
@@ -55,6 +58,7 @@ public class FlashLightController : MonoBehaviour
         {
             active = !active;
             flashlight.gameObject.SetActive(active);
+            trigger.SetActive(active);
         }
     }
 
@@ -69,6 +73,7 @@ public class FlashLightController : MonoBehaviour
                 batteryLife = 0;
                 active = false;
                 flashlight.gameObject.SetActive(active);
+                trigger.SetActive(active);
             } else
             {
                 batteryLife = batteryLife - (batteryLifeDrainSpeed * Time.deltaTime);

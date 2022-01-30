@@ -7,10 +7,12 @@ public class ItemCollector : MonoBehaviour
 {
     int items = 0;
     int totalItems = 0;
+    AudioSource asource;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Item")
         {
+            AudioManager.PlaySoundEffect("tingling", asource);
             items++;
             FindObjectOfType<ItemUI>().AddItem(collision.gameObject.GetComponent<SpriteRenderer>().sprite);
             Destroy(collision.gameObject);
@@ -20,6 +22,7 @@ public class ItemCollector : MonoBehaviour
     void Start()
     {
         totalItems = GameObject.FindGameObjectsWithTag("Item").Length;
+        asource = GetComponent<AudioSource>();
         
     }
 

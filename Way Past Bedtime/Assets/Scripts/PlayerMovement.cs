@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     Vector2 controlVector;
     public bool canMove = true;
+    AudioSource audiosrc;
 
 Camera cam;
 
@@ -27,6 +28,7 @@ Camera cam;
         rb2d = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         anim = GetComponent<Animator>();
+        audiosrc = GetComponent<AudioSource>();
     }
 
     private void Update()

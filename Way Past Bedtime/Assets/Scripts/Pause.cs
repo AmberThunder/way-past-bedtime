@@ -11,6 +11,11 @@ public class Pause : MonoBehaviour
 
     public static void TogglePause()
     {
+        AudioSource globalSource = FindObjectOfType<AudioManager>().GetComponent<AudioSource>();
+
+
+        AudioManager.PlaySoundEffect("buttonclick", globalSource);
+
         if (!paused)
         {
             paused = true;

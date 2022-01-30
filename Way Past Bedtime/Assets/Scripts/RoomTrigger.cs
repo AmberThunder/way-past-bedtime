@@ -13,6 +13,11 @@ public class RoomTrigger : MonoBehaviour
             // win the game
             Debug.Log("Win the game");
             Instantiate(Resources.Load<GameObject>("Prefabs/Win Canvas"));
+            AudioSource globalSource = FindObjectOfType<AudioManager>().GetComponent<AudioSource>();
+            if (!globalSource.isPlaying)
+            {
+                AudioManager.PlaySoundEffect("victoryjingle", globalSource);
+            }
             Time.timeScale = 0;
         }
     }

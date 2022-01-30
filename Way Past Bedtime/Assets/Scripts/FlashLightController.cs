@@ -26,6 +26,8 @@ public class FlashLightController : MonoBehaviour
 
     LightFlicker flicker;
 
+    public AudioSource asource;
+
     private void Awake()
     {
         defaultControls = new Controls();
@@ -57,6 +59,7 @@ public class FlashLightController : MonoBehaviour
     {
         if(batteryLife > 0)
         {
+            AudioManager.PlaySoundEffect("buttonclick", asource);
             active = !active;
             flashlight.gameObject.SetActive(active);
             trigger.SetActive(active);
@@ -74,6 +77,7 @@ public class FlashLightController : MonoBehaviour
                 batteryLife = 0;
                 active = false;
                 flashlight.gameObject.SetActive(active);
+                AudioManager.PlaySoundEffect("batterydead", asource);
                 trigger.SetActive(active);
             } else
             {

@@ -87,9 +87,11 @@ GameObject:
   - component: {fileID: 8368862109297580025}
   - component: {fileID: 8368862109297580030}
   - component: {fileID: 8052726446583687446}
-  m_Layer: 0
+  - component: {fileID: 1132452323}
+  - component: {fileID: 3993440715877995097}
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,7 +278,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015, y: -0.1}
+  m_Offset: {x: 0.0057929605, y: -0.31044665}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -287,8 +289,38 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.65, y: 0.8}
+  m_Size: {x: 0.5109695, y: 0.3808933}
   m_EdgeRadius: 0
+--- !u!114 &1132452323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368862109297580004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ae2b6135ec1b548bb2cc0629417793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  runTime: 2
+  pauseTime: 0.5
+  detectionRange: 20
+  attacking: 0
+  stopped: 0
+--- !u!114 &3993440715877995097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368862109297580004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4ab010b6e324d4bb17f665a9742871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8368862109423371976
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,3 +519,4 @@ MonoBehaviour:
   flashlight: {fileID: 8368862110424126430}
   batteryLife: 100
   batteryLifeDrainSpeed: 3
+  trigger: {fileID: 8368862109423371976}

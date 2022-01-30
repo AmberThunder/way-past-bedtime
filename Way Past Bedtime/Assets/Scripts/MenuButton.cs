@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public enum Option { SceneChange, ExitGame}
+public enum Option { SceneChange, ExitGame, TogglePause}
 
 public class MenuButton : MonoBehaviour
 {
@@ -26,6 +26,9 @@ public class MenuButton : MonoBehaviour
                 break;
             case Option.ExitGame:
                 Application.Quit();
+                break;
+            case Option.TogglePause:
+                Pause.TogglePause();
                 break;
         }
     }

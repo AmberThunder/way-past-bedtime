@@ -226,6 +226,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1170367564073925546}
     m_Modifications:
+    - target: {fileID: 1917422735764164110, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
+      propertyPath: scene
+      value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917422735764164110, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
+      propertyPath: option
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6784488849225374467, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -332,6 +340,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1170367564073925546}
     m_Modifications:
+    - target: {fileID: 1917422735764164110, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
+      propertyPath: option
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6784488849225374467, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

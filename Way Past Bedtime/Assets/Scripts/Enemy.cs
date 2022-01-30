@@ -110,6 +110,14 @@ public class Enemy : MonoBehaviour
             stopped = true;
             attacking = false;
         }
+        else if (collision.gameObject.tag.Equals("Bat"))
+        {
+            StopAllCoroutines();
+            stopped = true;
+            attacking = false;
+            rb2d.velocity = GetAngleToPlayer() * 30;
+            StartCoroutine(Pause());
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

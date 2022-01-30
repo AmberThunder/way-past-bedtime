@@ -14,12 +14,5 @@ public class ItemUI : MonoBehaviour
         newItemSlot.GetComponentsInChildren<Image>()[1].sprite = sprite;
 
         newItemSlot.transform.SetParent(itemHolder);
-
-        GetComponent<Canvas>().enabled = true;
-    }
-
-    private void Start()
-    {
-        GetComponent<Canvas>().enabled = false;
     }
 }

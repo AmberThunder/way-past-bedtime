@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5900991701026937426}
   - component: {fileID: 3896025506294938426}
   - component: {fileID: 743530532097624489}
-  - component: {fileID: 7652143082064695986}
   m_Layer: 5
   m_Name: Item Holder
   m_TagString: Untagged
@@ -37,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -64, y: 64}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 544, y: 160}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &5900991701026937426
 CanvasRenderer:
@@ -96,27 +95,13 @@ MonoBehaviour:
     m_Bottom: 32
   m_ChildAlignment: 5
   m_Spacing: 32
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &7652143082064695986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4876196114781174307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 2
 --- !u!1 &7943624040076934454
 GameObject:
   m_ObjectHideFlags: 0

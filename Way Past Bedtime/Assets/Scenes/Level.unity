@@ -14398,10 +14398,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2393870270273748703, guid: 515dfa60c64e339479ddd866a44a4104, type: 3}
-      propertyPath: m_TagString
-      value: Bat
-      objectReference: {fileID: 0}
     - target: {fileID: 8368862109297580004, guid: 515dfa60c64e339479ddd866a44a4104, type: 3}
       propertyPath: m_Name
       value: Player

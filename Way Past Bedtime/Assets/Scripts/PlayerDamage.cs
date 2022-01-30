@@ -18,7 +18,6 @@ public class PlayerDamage : MonoBehaviour
             ///health--;
             //if (health <= 0) { StartCoroutine(OnPlayerFaint()); }
             StartCoroutine(OnPlayerFaint());
-            Destroy(collision.gameObject);
         }
     }
     // Start is called before the first frame update

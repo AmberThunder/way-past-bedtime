@@ -72,6 +72,63 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &2393870270273748703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6580234508867181054}
+  - component: {fileID: 5872571933734915403}
+  m_Layer: 7
+  m_Name: BatHitBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6580234508867181054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2393870270273748703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8368862109297580024}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &5872571933734915403
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2393870270273748703}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.91}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.76, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &8368862109297580004
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +146,7 @@ GameObject:
   - component: {fileID: 8052726446583687446}
   - component: {fileID: 1132452323}
   - component: {fileID: 3993440715877995097}
+  - component: {fileID: 3662846872581992101}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -108,6 +166,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8368862110604723233}
+  - {fileID: 6580234508867181054}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -241,6 +300,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a09e6479-9e53-42a9-8021-025e7f4b95b7
     m_ActionName: New action map/Flashlight[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 67b59370-8f87-49f2-bdbe-ad1dab7fc713
+    m_ActionName: New action map/Wack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: New action map
@@ -309,6 +372,9 @@ MonoBehaviour:
   detectionRange: 20
   attacking: 0
   stopped: 0
+  lit: 0
+  unlitMat: {fileID: 0}
+  litMat: {fileID: 0}
 --- !u!114 &3993440715877995097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +387,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4ab010b6e324d4bb17f665a9742871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3662846872581992101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368862109297580004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae523122997adba4f9d4944a1b3390cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTime: 1
+  batHitBoxTime: 0.2
+  batHitBox: {fileID: 2393870270273748703}
 --- !u!1 &8368862109423371976
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,8 +519,8 @@ MonoBehaviour:
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
+  m_ShadowIntensity: 1
+  m_ShadowVolumeIntensity: 1
   m_PointLightInnerAngle: 34
   m_PointLightOuterAngle: 59
   m_PointLightInnerRadius: 0

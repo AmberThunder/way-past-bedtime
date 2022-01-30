@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D rb2d;
     protected Animator anim;
     protected SpriteRenderer rend;
+    protected AudioSource audiosrc;
 
     public Material unlitMat;
     public Material litMat;
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
+        audiosrc = GetComponent<AudioSource>();
         stopped = true;
         StopAllCoroutines();
         StartCoroutine(Pause());

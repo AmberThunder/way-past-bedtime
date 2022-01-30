@@ -6,7 +6,6 @@ public class PillowFort : Enemy
 {
     float pillowSpeed = 9;
 
-
     /// <summary>
     /// Throw a throw pillow at the player
     /// </summary>
@@ -28,5 +27,15 @@ public class PillowFort : Enemy
     {
         anim.SetBool("Lit", lit);
         anim.SetBool("Attacking", attacking);
+    }
+
+    public void StepSound1()
+    {
+        AudioManager.PlaySoundEffect("fortstep1", audiosrc);
+    }
+
+    public void StepSound2()
+    {
+        AudioManager.PlaySoundEffect("fortstep2", audiosrc);
     }
 }

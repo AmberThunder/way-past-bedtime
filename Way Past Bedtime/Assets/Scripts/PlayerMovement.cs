@@ -56,4 +56,9 @@ Camera cam;
         }
     }
 
+    public void StepSound()
+    {
+        AudioManager.PlaySoundEffect("tommystep",audiosrc);
+    }
+
 }

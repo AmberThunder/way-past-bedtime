@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PillowFort : Enemy
 {
-    float pillowSpeed = 8;
+    float pillowSpeed = 9;
 
 
     /// <summary>

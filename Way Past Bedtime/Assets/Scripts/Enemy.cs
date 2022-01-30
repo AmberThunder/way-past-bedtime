@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     public Material litMat;
 
     bool inLight;
+
+    AudioSource asource;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour
         stopped = true;
         StopAllCoroutines();
         StartCoroutine(Pause());
+        asource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -145,6 +148,7 @@ public class Enemy : MonoBehaviour
         }
         else if (collision.gameObject.tag.Equals("Bat"))
         {
+            AudioManager.PlaySoundEffect("bonk", asource);
             StopAllCoroutines();
             stopped = true;
             attacking = false;

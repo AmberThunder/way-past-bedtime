@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
+public class FlashLightLightUp : MonoBehaviour
 {
-
-    public delegate void flashLight(GameObject collision);
-    public static event flashLight collide;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +16,9 @@ public class EventManager : MonoBehaviour
         
     }
 
-    public void flashlightHitSomething(GameObject collision)
+    public void LightUp()
     {
-        collide(collision);
+        Debug.Log("Gameobject" + this.gameObject.name + " lit up");
     }
+
 }

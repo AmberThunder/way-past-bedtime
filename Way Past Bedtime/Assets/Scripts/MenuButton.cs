@@ -23,6 +23,7 @@ public class MenuButton : MonoBehaviour
         {
             case Option.SceneChange:
                 SceneManager.LoadScene(scene);
+                Time.timeScale = 1;
                 break;
             case Option.ExitGame:
                 Application.Quit();

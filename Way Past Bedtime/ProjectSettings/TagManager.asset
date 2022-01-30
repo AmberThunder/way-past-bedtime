@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Flashlight
   - Spooky
+  - Item
   layers:
   - Default
   - TransparentFX

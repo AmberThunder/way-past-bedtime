@@ -18,4 +18,15 @@ public class PillowFort : Enemy
         pillow.GetComponent<Rigidbody2D>().velocity = -GetAngleToPlayer() * pillowSpeed;
 
     }
+
+    override protected void ContinuousAttack()
+    {
+        rb2d.velocity = -1 * GetAngleToPlayer() * speed;
+    }
+
+    protected override void UpdateAnimation()
+    {
+        anim.SetBool("Lit", lit);
+        anim.SetBool("Attacking", attacking);
+    }
 }

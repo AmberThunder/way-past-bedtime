@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D rb2d;
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>().gameObject;
+        player = GameObject.FindGameObjectWithTag("player");
         stopped = true;
         StartCoroutine(Pause());
     }

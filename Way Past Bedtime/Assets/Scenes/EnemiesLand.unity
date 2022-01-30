@@ -8518,6 +8518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8368862109297580004, guid: 515dfa60c64e339479ddd866a44a4104, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8368862109297580024, guid: 515dfa60c64e339479ddd866a44a4104, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -27808,12 +27812,12 @@ Rigidbody2D:
   m_Mass: 0.20124999
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2129552263
 SpriteRenderer:
   m_ObjectHideFlags: 0

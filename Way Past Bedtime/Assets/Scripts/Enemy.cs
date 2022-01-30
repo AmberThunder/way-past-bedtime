@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Enemy : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class Enemy : MonoBehaviour
 
     public Material unlitMat;
     public Material litMat;
+
+    bool inLight;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -46,6 +49,37 @@ public class Enemy : MonoBehaviour
         {
             ContinuousAttack();
         }
+
+        if (inLight)
+        {
+            //Debug.Log("In light");
+            int layerMaskPlayer = 1 << LayerMask.NameToLayer("PlayerRayCast");
+            int layerMaskWall = 1 << LayerMask.NameToLayer("Wall");
+            int layerMask = layerMaskPlayer | layerMaskWall;
+            //Physics2D.queriesHitTriggers = false;
+            Vector3 heading = GameObject.FindGameObjectWithTag("Player").transform.position - transform.position;
+            float distance = heading.magnitude;
+            Vector3 dir = heading / distance;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, layerMask);
+            if (hit.collider != null )
+            {
+                if(hit.collider.gameObject.tag == "PlayerRayCastHit")
+                {
+                    EnemyInLight();
+                    //Debug.DrawLine(this.gameObject.transform.position, hit.collider.transform.position, Color.red, 10f);
+                } else
+                {
+                    EnemyNotInLight();
+                    //Debug.DrawLine(this.gameObject.transform.position, hit.collider.transform.position, Color.green, 10f);
+                    //Debug.Log("Hitting " + hit.collider.gameObject.name);
+                }
+            }
+        }
+    }
+
+    private void Awake()
+    {
+        //EventManager.collide += LightUp;
     }
 
     IEnumerator Pause()
@@ -93,7 +127,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void SingleAttack()
     {
-        Debug.Log("Single Attack");
+        //Debug.Log("Single Attack");
     }
 
     protected virtual void UpdateAnimation()
@@ -105,11 +139,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Flashlight"))
         {
-            StopAllCoroutines();
-            rend.material = litMat;
-            lit = true;
-            stopped = true;
-            attacking = false;
+            inLight = true;
         }
         else if (collision.gameObject.tag.Equals("Bat"))
         {
@@ -121,13 +151,28 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void EnemyInLight()
+    {
+        StopAllCoroutines();
+        rend.material = litMat;
+        lit = true;
+        stopped = true;
+        attacking = false;
+    }
+
+    void EnemyNotInLight()
+    {
+        rend.material = unlitMat;
+        lit = false;
+        stopped = false;
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Flashlight"))
         {
-            rend.material = unlitMat;
-            lit = false;
-            stopped = false;
+            inLight = false;
+            EnemyNotInLight();
         }
     }
 

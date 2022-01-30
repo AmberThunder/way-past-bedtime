@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed = 5;
     Animator anim;
     Vector2 controlVector;
+    public bool canMove = true;
     AudioSource audiosrc;
 
 Camera cam;
@@ -32,22 +33,27 @@ Camera cam;
 
     private void Update()
     {
-        if(rb2d.velocity.magnitude < .1f)
+        if (canMove)
         {
-            anim.SetBool("Moving", false);
-        }
-        else
-        {
-            anim.SetBool("Moving", true);
-            anim.SetFloat("Horizontal", rb2d.velocity.x);
-            anim.SetFloat("Vertical", rb2d.velocity.y);
+            if (rb2d.velocity.magnitude < .1f)
+            {
+                anim.SetBool("Moving", false);
+            }
+            else
+            {
+                anim.SetBool("Moving", true);
+                anim.SetFloat("Horizontal", rb2d.velocity.x);
+                anim.SetFloat("Vertical", rb2d.velocity.y);
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        rb2d.velocity = controlVector * speed;
+        if (canMove)
+        {
+            rb2d.velocity = controlVector * speed;
+        }
     }
-
 
 }

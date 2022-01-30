@@ -81,6 +81,3 @@ public class Enemy : MonoBehaviour
         Debug.Log("Single Attack");
     }
 }
-
-        yield return new WaitForSeconds(runTime);
-        SingleAttack();

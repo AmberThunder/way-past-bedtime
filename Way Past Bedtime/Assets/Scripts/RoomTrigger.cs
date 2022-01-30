@@ -12,6 +12,7 @@ public class RoomTrigger : MonoBehaviour
         {
             // win the game
             Debug.Log("Win the game");
+            Instantiate(Resources.Load<GameObject>("Prefabs/Win Canvas"));
         }
     }
 }

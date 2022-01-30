@@ -17,16 +17,48 @@ public class AudioManager : MonoBehaviour
      * music (thomas)
      * button click
      */
+    // A manager to control which sounds will play at which points.
+    public static AudioSource[] musicList;
 
-    // Start is called before the first frame update
-    void Start()
+    // Dictionary holding Audio Clips
+    private static readonly
+    IDictionary<string, AudioClip> SoundEffects
+        = new Dictionary<string, AudioClip>();
+
+    void Awake()
     {
+
+        // PlayerSound Effects
+        SoundEffects.Add("buttonclick", Resources.Load<AudioClip>("SoundEffects/buttonclick"));
 
     }
 
-    // Update is called once per frame
-    void Update()
+    // Plays a sound effect
+    public static void PlaySoundEffect(string sound, AudioSource audioSource)
     {
+        audioSource.PlayOneShot(SoundEffects[sound]);
+    }
+
+    // Plays music
+    public static void PlayMusic(string sound, AudioSource audioSource)
+    {
+        StopMusic();
+
+        audioSource.PlayOneShot(SoundEffects[sound]);
+    }
+
+    // Stops Music to avoid multiple tracks at once
+    public static void StopMusic()
+    {
+        // Music to stop based on number of enumerators.
+        int firstMusic = 0;
+        int secondMusic = 2;
+
+        // Go through entire music list and stop all tracks.
+        for (int i = firstMusic; i < secondMusic; i++)
+        {
+            musicList[i].Stop();
+        }
 
     }
 }

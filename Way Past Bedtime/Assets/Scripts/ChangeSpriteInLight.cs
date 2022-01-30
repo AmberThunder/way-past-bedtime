@@ -11,7 +11,7 @@ public class ChangeSpriteInLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.GetComponent<SpriteRenderer>().sprite = inDark;
+        turnSpriteDark();
         if(this.GetComponent<BoxCollider2D>() == null)
         {
             this.gameObject.AddComponent<BoxCollider2D>();
@@ -29,7 +29,7 @@ public class ChangeSpriteInLight : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag.Equals("Flashlight")) {
-            this.GetComponent<SpriteRenderer>().sprite = inLight;
+            turnSpriteLight();
         }
     }
 
@@ -37,6 +37,32 @@ public class ChangeSpriteInLight : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Flashlight"))
         {
+            turnSpriteDark();
+        }
+    }
+
+    void turnSpriteLight()
+    {
+        if (inLight == null)
+        {
+            this.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else
+        {
+            this.GetComponent<SpriteRenderer>().enabled = true;
+            this.GetComponent<SpriteRenderer>().sprite = inLight;
+        }
+    }
+
+    void turnSpriteDark()
+    {
+        if (inDark == null)
+        {
+            this.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else
+        {
+            this.GetComponent<SpriteRenderer>().enabled = true;
             this.GetComponent<SpriteRenderer>().sprite = inDark;
         }
     }

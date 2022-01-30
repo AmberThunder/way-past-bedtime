@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 5872571933734915403}
   m_Layer: 7
   m_Name: BatHitBox
-  m_TagString: Untagged
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,10 +113,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.91}
+  m_Offset: {x: 0, y: -0.8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -127,7 +127,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.76, y: 1}
+  m_Size: {x: 0.7, y: 0.9}
   m_EdgeRadius: 0
 --- !u!1 &8368862109297580004
 GameObject:
@@ -405,8 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae523122997adba4f9d4944a1b3390cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTime: 1
-  batHitBoxTime: 0.2
+  attackTime: 0.7
+  batHitBoxTime: 0.1
   batHitBox: {fileID: 2393870270273748703}
 --- !u!114 &8484545956007446691
 MonoBehaviour:

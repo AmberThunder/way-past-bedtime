@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float detectionRange = 20;
     public bool attacking = false;
     public bool stopped = false;
+    public bool lit = false;
     protected GameObject player;
     protected Rigidbody2D rb2d;
     void Start()
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!stopped && !attacking)
+        if (!lit && !stopped && !attacking)
         {
             CheckForPlayer();
         }
@@ -83,5 +84,24 @@ public class Enemy : MonoBehaviour
     protected virtual void SingleAttack()
     {
         Debug.Log("Single Attack");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Flashlight"))
+        {
+            lit = true;
+            stopped = true;
+            attacking = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Flashlight"))
+        {
+            lit = false;
+            stopped = false;
+        }
     }
 }

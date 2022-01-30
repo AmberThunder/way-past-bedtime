@@ -9,6 +9,7 @@ TagManager:
   - Item
   - Bat
   - PlayerRayCastHit
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - Wall
   - Enemy
   - Projectile
-  - 
-  - 
+  - Flashlight
+  - PlayerRayCast
   - 
   - 
   - 

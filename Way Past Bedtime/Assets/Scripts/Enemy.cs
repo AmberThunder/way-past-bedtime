@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
         if (inLight)
         {
             //Debug.Log("In light");
-            int layerMaskPlayer = 1 << LayerMask.NameToLayer("Player");
+            int layerMaskPlayer = 1 << LayerMask.NameToLayer("PlayerRayCast");
             int layerMaskWall = 1 << LayerMask.NameToLayer("Wall");
             int layerMask = layerMaskPlayer | layerMaskWall;
             //Physics2D.queriesHitTriggers = false;
@@ -63,8 +63,6 @@ public class Enemy : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, layerMask);
             if (hit.collider != null )
             {
-                //Debug.Log(hit.collider.gameObject.name);
-                //Debug.DrawLine(this.gameObject.transform.position, hit.collider.transform.position, Color.green, 10f);
                 if(hit.collider.gameObject.tag == "PlayerRayCastHit")
                 {
                     EnemyInLight();
@@ -72,6 +70,8 @@ public class Enemy : MonoBehaviour
                 } else
                 {
                     EnemyNotInLight();
+                    //Debug.DrawLine(this.gameObject.transform.position, hit.collider.transform.position, Color.green, 10f);
+                    //Debug.Log("Hitting " + hit.collider.gameObject.name);
                 }
             }
         }

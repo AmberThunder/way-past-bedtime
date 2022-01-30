@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 1132452323}
   - component: {fileID: 3993440715877995097}
   - component: {fileID: 3662846872581992101}
+  - component: {fileID: 8484545956007446691}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -304,6 +305,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 67b59370-8f87-49f2-bdbe-ad1dab7fc713
     m_ActionName: New action map/Wack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1d93bb92-0b6d-4c2d-8e87-7944540febd6
+    m_ActionName: New action map/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: New action map
@@ -402,6 +407,18 @@ MonoBehaviour:
   attackTime: 1
   batHitBoxTime: 0.2
   batHitBox: {fileID: 2393870270273748703}
+--- !u!114 &8484545956007446691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368862109297580004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e9214a73837744e9ce235a84690e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8368862109423371976
 GameObject:
   m_ObjectHideFlags: 0

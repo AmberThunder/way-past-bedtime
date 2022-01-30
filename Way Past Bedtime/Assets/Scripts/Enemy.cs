@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!stopped && !attacking)
         {
@@ -33,11 +33,12 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(pauseTime);
         stopped = false;
+        MonsterAttack();
     }
 
     IEnumerator Attack()
     {
-        MonsterAttack();
+        
         yield return new WaitForSeconds(pauseTime);
         attacking = false;
         StartCoroutine(Pause());

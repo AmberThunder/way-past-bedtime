@@ -2,27 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PillowFort : MonoBehaviour
+public class PillowFort : Enemy
 {
-    Transform player;
     float pillowSpeed = 8;
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = FindObjectOfType<PlayerMovement>().transform;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
+    /// <summary>
+    /// Throw a throw pillow at the player
+    /// </summary>
     override protected void MonsterAttack()
     {
+        
         GameObject pillow = Instantiate(Resources.Load<GameObject>("Prefabs/Pillow"), transform.position, Quaternion.identity);
 
-        pillow.GetComponent<Rigidbody2D>().velocity = GetAngleToPlayer() * pillowSpeed;
-               
+        pillow.GetComponent<Rigidbody2D>().velocity = -GetAngleToPlayer() * pillowSpeed;
+
     }
 }

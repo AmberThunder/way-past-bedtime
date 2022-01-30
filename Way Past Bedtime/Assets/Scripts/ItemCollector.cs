@@ -12,6 +12,7 @@ public class ItemCollector : MonoBehaviour
         if (collision.gameObject.tag == "Item")
         {
             items++;
+            FindObjectOfType<ItemUI>().AddItem(collision.gameObject.GetComponent<SpriteRenderer>().sprite);
             Destroy(collision.gameObject);
         }
     }
@@ -19,6 +20,7 @@ public class ItemCollector : MonoBehaviour
     void Start()
     {
         totalItems = GameObject.FindGameObjectsWithTag("Item").Length;
+        
     }
 
     public bool CheckItems()

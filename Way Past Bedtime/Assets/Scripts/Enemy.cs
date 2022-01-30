@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Attack()
     {
+        FacePlayer();
         yield return new WaitForSeconds(runTime);
         SingleAttack();
         attacking = false;
@@ -128,5 +129,10 @@ public class Enemy : MonoBehaviour
             lit = false;
             stopped = false;
         }
+    }
+
+    protected void FacePlayer()
+    {
+        rend.flipX = player.transform.position.x > transform.position.x;
     }
 }

@@ -25,11 +25,18 @@ public class AudioManager : MonoBehaviour
     IDictionary<string, AudioClip> SoundEffects
         = new Dictionary<string, AudioClip>();
 
+    public static string[] soundNames = { "batswing", "batterydead", "bonk", "buttonclick",
+        "fortstep1", "fortstep2", "pillowhit", "pillowthrow", "teddystep", "tick-tock",
+        "tingling", "tommycry", "tommyhit", "tommystep", "victoryjingle" };
+
     void Awake()
     {
 
         // PlayerSound Effects
-        SoundEffects.Add("buttonclick", Resources.Load<AudioClip>("SoundEffects/buttonclick"));
+        foreach (string snd in soundNames)
+        {
+            SoundEffects.Add(snd, Resources.Load<AudioClip>("SoundEffects/" + snd));
+        }
 
     }
 

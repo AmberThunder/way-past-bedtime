@@ -40,7 +40,6 @@ public class PlayerDamage : MonoBehaviour
         //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         GetComponent<Animator>().SetTrigger("Faint");
         FindObjectOfType<FlashLightController>().batteryLife = 0;
-        GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

@@ -29,6 +29,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if(attacking)
+        {
+            ContinuousAttack();
+        }
+    }
+
     IEnumerator Pause()
     {
         yield return new WaitForSeconds(pauseTime);
@@ -37,8 +45,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Attack()
     {
-        MonsterAttack();
-        yield return new WaitForSeconds(pauseTime);
+        yield return new WaitForSeconds(runTime);
+        SingleAttack();
         attacking = false;
         StartCoroutine(Pause());
     }
@@ -61,7 +69,12 @@ public class Enemy : MonoBehaviour
         return (rb2d.position - playerLocation).normalized;
     }
 
-    protected virtual void MonsterAttack()
+    protected virtual void ContinuousAttack()
+    {
+        //generic
+    }
+
+    protected virtual void SingleAttack()
     {
         //generic
     }

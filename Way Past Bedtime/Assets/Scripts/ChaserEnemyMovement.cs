@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class ChaserEnemyMovement : Enemy
 {
-    override protected void MonsterAttack()
+    override protected void ContinuousAttack()
     {
-        Vector2 angle = GetAngleToPlayer();
-        rb2d.MovePosition(angle * speed);
+        rb2d.MovePosition(GetAngleToPlayer() * speed * Time.deltaTime);
     }
 
 }

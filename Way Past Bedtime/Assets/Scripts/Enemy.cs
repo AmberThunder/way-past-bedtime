@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
             int layerMaskPlayer = 1 << LayerMask.NameToLayer("Player");
             int layerMaskWall = 1 << LayerMask.NameToLayer("Wall");
             int layerMask = layerMaskPlayer | layerMaskWall;
-            Physics2D.queriesHitTriggers = false;
+            //Physics2D.queriesHitTriggers = false;
             Vector3 heading = GameObject.FindGameObjectWithTag("Player").transform.position - transform.position;
             float distance = heading.magnitude;
             Vector3 dir = heading / distance;

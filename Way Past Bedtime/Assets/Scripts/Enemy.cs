@@ -14,7 +14,8 @@ public class Enemy : MonoBehaviour
     protected Rigidbody2D rb2d;
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("player");
+        player = GameObject.FindGameObjectWithTag("Player");
+        rb2d = GetComponent<Rigidbody2D>();
         stopped = true;
         StartCoroutine(Pause());
     }
@@ -56,7 +57,8 @@ public class Enemy : MonoBehaviour
 
     protected Vector2 GetAngleToPlayer()
     {
-        return (rb2d.position - new Vector2(player.transform.position.x, player.transform.position.y)).normalized;
+        Vector2 playerLocation = player.transform.position;
+        return (rb2d.position - playerLocation).normalized;
     }
 
     protected virtual void MonsterAttack()

@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 992451818587399439}
   - component: {fileID: 992451818587399424}
   - component: {fileID: 992451818587399425}
-  m_Layer: 10
   - component: {fileID: -4441604426592462644}
+  - component: {fileID: 1799810511351580138}
+  - component: {fileID: 5991503521844534775}
+  m_Layer: 10
   m_Name: Pillow
   m_TagString: Spooky
   m_Icon: {fileID: 0}
@@ -145,3 +147,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 4957229849087567292, guid: 2d7323429278a3646a02d843d0ad50d0, type: 3}
+--- !u!114 &1799810511351580138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992451818587399436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e3ea8af7f889a4ab52675cddc25e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inLight: {fileID: 21300000, guid: 2b383bd6b353e9540b192f62fd47c7c1, type: 3}
+  inDark: {fileID: 21300000, guid: 490de87573f82934ba4787e3847a88b9, type: 3}
+  lit: 0
+--- !u!61 &5991503521844534775
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992451818587399436}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.125, y: 1.125}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.125, y: 1.125}
+  m_EdgeRadius: 0

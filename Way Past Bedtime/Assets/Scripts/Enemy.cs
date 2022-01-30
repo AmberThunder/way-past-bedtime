@@ -5,33 +5,44 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = 5;
-    public float runTime = 2;
-    public float pauseTime = .5f;
+    public float runTime = 1;
+    public float pauseTime = 1;
     public float detectionRange = 20;
     public bool attacking = false;
     public bool stopped = false;
+    public bool lit = false;
+
     protected GameObject player;
     protected Rigidbody2D rb2d;
+    protected Animator anim;
+    protected SpriteRenderer rend;
+
+    public Material unlitMat;
+    public Material litMat;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        rend = GetComponent<SpriteRenderer>();
         stopped = true;
+        StopAllCoroutines();
         StartCoroutine(Pause());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!stopped && !attacking)
+        if (!lit && !stopped && !attacking)
         {
             CheckForPlayer();
         }
+        UpdateAnimation();
     }
 
     private void FixedUpdate()
     {
-        if(attacking)
+        if(attacking && !stopped)
         {
             ContinuousAttack();
         }
@@ -48,6 +59,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(runTime);
         SingleAttack();
         attacking = false;
+        stopped = true;
         StartCoroutine(Pause());
     }
 
@@ -56,11 +68,13 @@ public class Enemy : MonoBehaviour
         if ((transform.position - player.transform.position).magnitude < detectionRange)
         {
             attacking = true;
+            StopAllCoroutines();
             StartCoroutine(Attack());
         }
         else
         {
             stopped = true;
+            StopAllCoroutines();
             StartCoroutine(Pause());
         }
     }
@@ -79,5 +93,32 @@ public class Enemy : MonoBehaviour
     protected virtual void SingleAttack()
     {
         Debug.Log("Single Attack");
+    }
+
+    protected virtual void UpdateAnimation()
+    {
+        //fill in here
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Flashlight"))
+        {
+            StopAllCoroutines();
+            rend.material = litMat;
+            lit = true;
+            stopped = true;
+            attacking = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Flashlight"))
+        {
+            rend.material = unlitMat;
+            lit = false;
+            stopped = false;
+        }
     }
 }

@@ -6,7 +6,12 @@ public class ChaserEnemyMovement : Enemy
 {
     override protected void ContinuousAttack()
     {
-        rb2d.MovePosition(GetAngleToPlayer() * speed * Time.deltaTime);
+        rb2d.velocity = -1 * GetAngleToPlayer() * speed;
     }
 
+    protected override void UpdateAnimation()
+    {
+        anim.SetBool("Lit", lit);
+        anim.SetBool("Attacking", attacking);
+    }
 }

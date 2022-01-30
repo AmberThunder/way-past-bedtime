@@ -14,4 +14,9 @@ public class ChaserEnemyMovement : Enemy
         anim.SetBool("Lit", lit);
         anim.SetBool("Attacking", attacking);
     }
+
+    public void EnemyStepSound()
+    {
+        AudioManager.PlaySoundEffect("teddystep", audiosrc);
+    }
 }

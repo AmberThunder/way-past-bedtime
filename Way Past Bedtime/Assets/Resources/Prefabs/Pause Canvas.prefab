@@ -226,6 +226,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1170367564073925546}
     m_Modifications:
+    - target: {fileID: 1191840825734325791, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 8815189020767119099, guid: 1c7d8b222f12f0e45a46acb4dc76a4e8, type: 3}
+    - target: {fileID: 1191840825734325791, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 1782914186671431578, guid: 1c7d8b222f12f0e45a46acb4dc76a4e8, type: 3}
     - target: {fileID: 1917422735764164110, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
       propertyPath: scene
       value: Main Menu
@@ -234,6 +242,10 @@ PrefabInstance:
       propertyPath: option
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4147138362252378203, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7076132655741482044, guid: 1c7d8b222f12f0e45a46acb4dc76a4e8, type: 3}
     - target: {fileID: 6784488849225374467, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -340,10 +352,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1170367564073925546}
     m_Modifications:
+    - target: {fileID: 1191840825734325791, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 8815189020767119099, guid: 1c7d8b222f12f0e45a46acb4dc76a4e8, type: 3}
+    - target: {fileID: 1191840825734325791, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 1782914186671431578, guid: 1c7d8b222f12f0e45a46acb4dc76a4e8, type: 3}
     - target: {fileID: 1917422735764164110, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
       propertyPath: option
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4147138362252378203, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7076132655741482044, guid: 1c7d8b222f12f0e45a46acb4dc76a4e8, type: 3}
     - target: {fileID: 6784488849225374467, guid: 2c690eda1955f3d49ab49fdeb8515701, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -8,6 +8,7 @@ TagManager:
   - Spooky
   - Item
   - Bat
+  - PlayerRayCastHit
   layers:
   - Default
   - TransparentFX

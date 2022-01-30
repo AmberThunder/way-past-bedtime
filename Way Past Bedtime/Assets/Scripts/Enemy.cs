@@ -104,6 +104,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Flashlight"))
         {
+            StopAllCoroutines();
             rend.material = litMat;
             lit = true;
             stopped = true;

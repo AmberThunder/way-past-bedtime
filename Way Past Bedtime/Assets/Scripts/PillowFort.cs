@@ -10,7 +10,7 @@ public class PillowFort : Enemy
     /// <summary>
     /// Throw a throw pillow at the player
     /// </summary>
-    override protected void MonsterAttack()
+    override protected void SingleAttack()
     {
         
         GameObject pillow = Instantiate(Resources.Load<GameObject>("Prefabs/Pillow"), transform.position, Quaternion.identity);

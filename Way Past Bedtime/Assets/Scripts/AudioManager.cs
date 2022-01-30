@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
 
     // Dictionary holding Audio Clips
     private static readonly
-    IDictionary<string, AudioClip> SoundEffects
+    Dictionary<string, AudioClip> SoundEffects
         = new Dictionary<string, AudioClip>();
 
     public static string[] soundNames = { "batswing", "batterydead", "bonk", "buttonclick",
@@ -31,11 +31,13 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-
-        // PlayerSound Effects
-        foreach (string snd in soundNames)
+        if(SoundEffects.Count == 0)
         {
-            SoundEffects.Add(snd, Resources.Load<AudioClip>("SoundEffects/" + snd));
+            // PlayerSound Effects
+            foreach (string snd in soundNames)
+            {
+                SoundEffects.Add(snd, Resources.Load<AudioClip>("SoundEffects/" + snd));
+            }
         }
 
     }
@@ -43,6 +45,7 @@ public class AudioManager : MonoBehaviour
     // Plays a sound effect
     public static void PlaySoundEffect(string sound, AudioSource audioSource)
     {
+        Debug.Log("played sound "+sound);
         audioSource.PlayOneShot(SoundEffects[sound]);
     }
 

@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed = 5;
     Animator anim;
     Vector2 controlVector;
+    AudioSource audiosrc;
 
 Camera cam;
 
@@ -26,6 +27,7 @@ Camera cam;
         rb2d = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         anim = GetComponent<Animator>();
+        audiosrc = GetComponent<AudioSource>();
     }
 
     private void Update()

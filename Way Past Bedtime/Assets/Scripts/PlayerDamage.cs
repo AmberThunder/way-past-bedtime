@@ -8,6 +8,7 @@ public class PlayerDamage : MonoBehaviour
 {
     Light2D[] lights;
     float fadeAmount = 0.1f;
+    AudioSource audiosrc;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,7 +30,7 @@ public class PlayerDamage : MonoBehaviour
     void Start()
     {
         lights = FindObjectsOfType<Light2D>();
-
+        audiosrc = GetComponent<AudioSource>();
         
     }
 
@@ -37,6 +38,8 @@ public class PlayerDamage : MonoBehaviour
     {
         FindObjectOfType<FlashLightController>().batteryLife = 0;
         GetComponent<SpriteRenderer>().enabled = false;
+        //AudioManager.PlaySoundEffect("tommyhit", audiosrc);
+        //AudioManager.PlaySoundEffect("tommycry", audiosrc);
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

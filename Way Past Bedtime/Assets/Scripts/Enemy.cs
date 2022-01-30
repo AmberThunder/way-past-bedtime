@@ -11,12 +11,20 @@ public class Enemy : MonoBehaviour
     public bool attacking = false;
     public bool stopped = false;
     public bool lit = false;
+
     protected GameObject player;
     protected Rigidbody2D rb2d;
+    protected Animator anim;
+    protected SpriteRenderer rend;
+
+    public Material unlitMat;
+    public Material litMat;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        rend = GetComponent<SpriteRenderer>();
         stopped = true;
         StopAllCoroutines();
         StartCoroutine(Pause());
@@ -29,6 +37,7 @@ public class Enemy : MonoBehaviour
         {
             CheckForPlayer();
         }
+        UpdateAnimation();
     }
 
     private void FixedUpdate()
@@ -86,10 +95,16 @@ public class Enemy : MonoBehaviour
         Debug.Log("Single Attack");
     }
 
+    protected virtual void UpdateAnimation()
+    {
+        //fill in here
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Flashlight"))
         {
+            rend.material = litMat;
             lit = true;
             stopped = true;
             attacking = false;
@@ -100,6 +115,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Flashlight"))
         {
+            rend.material = unlitMat;
             lit = false;
             stopped = false;
         }

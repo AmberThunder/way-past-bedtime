@@ -9,4 +9,9 @@ public class ChaserEnemyMovement : Enemy
         rb2d.velocity = -1 * GetAngleToPlayer() * speed;
     }
 
+    protected override void UpdateAnimation()
+    {
+        anim.SetBool("Lit", lit);
+        anim.SetBool("Attacking", attacking);
+    }
 }

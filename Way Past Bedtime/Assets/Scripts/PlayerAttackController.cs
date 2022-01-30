@@ -19,6 +19,8 @@ public class PlayerAttackController : MonoBehaviour
 
     public GameObject batHitBox;
 
+    AudioSource asource;
+
     private void Awake()
     {
         defaultControls = new Controls();
@@ -38,6 +40,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         defaultControls.Newactionmap.Wack.performed += Wack;
         anim = GetComponent<Animator>();
+        asource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -102,6 +105,7 @@ public class PlayerAttackController : MonoBehaviour
 
     void ThrowHitbox(int dir)
     {
+        AudioManager.PlaySoundEffect("batswing", asource);
         //Dir 0 = down 1 = up 2 = left 3 = right
         batHitBox.SetActive(true);
         switch(dir)

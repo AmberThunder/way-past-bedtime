@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (!stopped && !attacking)
         {
@@ -29,17 +29,24 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if(attacking)
+        {
+            ContinuousAttack();
+        }
+    }
+
     IEnumerator Pause()
     {
         yield return new WaitForSeconds(pauseTime);
         stopped = false;
-        MonsterAttack();
     }
 
     IEnumerator Attack()
     {
-        
-        yield return new WaitForSeconds(pauseTime);
+        yield return new WaitForSeconds(runTime);
+        SingleAttack();
         attacking = false;
         StartCoroutine(Pause());
     }
@@ -48,10 +55,12 @@ public class Enemy : MonoBehaviour
     {
         if ((transform.position - player.transform.position).magnitude < detectionRange)
         {
+            attacking = true;
             StartCoroutine(Attack());
         }
         else
         {
+            stopped = true;
             StartCoroutine(Pause());
         }
     }
@@ -62,8 +71,16 @@ public class Enemy : MonoBehaviour
         return (rb2d.position - playerLocation).normalized;
     }
 
-    protected virtual void MonsterAttack()
+    protected virtual void ContinuousAttack()
     {
-        //generic
+        //Debug.Log("Continuous Attack");
+    }
+
+    protected virtual void SingleAttack()
+    {
+        Debug.Log("Single Attack");
     }
 }
+
+        yield return new WaitForSeconds(runTime);
+        SingleAttack();

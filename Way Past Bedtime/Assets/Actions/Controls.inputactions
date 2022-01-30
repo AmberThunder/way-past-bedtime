@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Wack",
+                    "type": "Button",
+                    "id": "67b59370-8f87-49f2-bdbe-ad1dab7fc713",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -148,12 +157,12 @@
                 },
                 {
                     "name": "",
-                    "id": "27db6168-1647-44ee-8085-9618e6ae70cb",
+                    "id": "8a46a996-3914-4922-b413-c111e958cbdc",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Flashlight",
+                    "action": "Wack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

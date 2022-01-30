@@ -44,6 +44,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Wack"",
+                    ""type"": ""Button"",
+                    ""id"": ""67b59370-8f87-49f2-bdbe-ad1dab7fc713"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -170,12 +179,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""27db6168-1647-44ee-8085-9618e6ae70cb"",
+                    ""id"": ""8a46a996-3914-4922-b413-c111e958cbdc"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Flashlight"",
+                    ""action"": ""Wack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -188,6 +197,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Newactionmap = asset.FindActionMap("New action map", throwIfNotFound: true);
         m_Newactionmap_Movement = m_Newactionmap.FindAction("Movement", throwIfNotFound: true);
         m_Newactionmap_Flashlight = m_Newactionmap.FindAction("Flashlight", throwIfNotFound: true);
+        m_Newactionmap_Wack = m_Newactionmap.FindAction("Wack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,12 +259,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private INewactionmapActions m_NewactionmapActionsCallbackInterface;
     private readonly InputAction m_Newactionmap_Movement;
     private readonly InputAction m_Newactionmap_Flashlight;
+    private readonly InputAction m_Newactionmap_Wack;
     public struct NewactionmapActions
     {
         private @Controls m_Wrapper;
         public NewactionmapActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Newactionmap_Movement;
         public InputAction @Flashlight => m_Wrapper.m_Newactionmap_Flashlight;
+        public InputAction @Wack => m_Wrapper.m_Newactionmap_Wack;
         public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -270,6 +282,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Flashlight.started -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnFlashlight;
                 @Flashlight.performed -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnFlashlight;
                 @Flashlight.canceled -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnFlashlight;
+                @Wack.started -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnWack;
+                @Wack.performed -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnWack;
+                @Wack.canceled -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnWack;
             }
             m_Wrapper.m_NewactionmapActionsCallbackInterface = instance;
             if (instance != null)
@@ -280,6 +295,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Flashlight.started += instance.OnFlashlight;
                 @Flashlight.performed += instance.OnFlashlight;
                 @Flashlight.canceled += instance.OnFlashlight;
+                @Wack.started += instance.OnWack;
+                @Wack.performed += instance.OnWack;
+                @Wack.canceled += instance.OnWack;
             }
         }
     }
@@ -288,5 +306,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnFlashlight(InputAction.CallbackContext context);
+        void OnWack(InputAction.CallbackContext context);
     }
 }

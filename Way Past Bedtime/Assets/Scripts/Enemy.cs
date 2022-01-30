@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void SingleAttack()
     {
-        Debug.Log("Single Attack");
+        //Debug.Log("Single Attack");
     }
 
     protected virtual void UpdateAnimation()

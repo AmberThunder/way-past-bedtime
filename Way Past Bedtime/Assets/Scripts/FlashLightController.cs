@@ -93,4 +93,9 @@ public class FlashLightController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
     }
 
+    public void SendRayToHitObject()
+    {
+
+    }
+
 }

@@ -15,9 +15,14 @@ public class PlayerDamage : MonoBehaviour
         {
             Debug.Log("spooky");
 
-            ///health--;
-            //if (health <= 0) { StartCoroutine(OnPlayerFaint()); }
-            StartCoroutine(OnPlayerFaint());
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+
+            if (enemy == null || enemy.lit == false)
+            {
+                ///health--;
+                //if (health <= 0) { StartCoroutine(OnPlayerFaint()); }
+                StartCoroutine(OnPlayerFaint());
+            }
         }
     }
     // Start is called before the first frame update

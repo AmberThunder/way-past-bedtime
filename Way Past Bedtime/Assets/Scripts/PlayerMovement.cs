@@ -11,16 +11,18 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb2d;
     [SerializeField] float speed = 5;
     Animator anim;
+    Vector2 controlVector;
 
 Camera cam;
 
     public void OnPlayerMovement(InputAction.CallbackContext context)
     {
-        rb2d.velocity = context.ReadValue<Vector2>() * speed;
+        controlVector = context.ReadValue<Vector2>();
     }
 
     private void Start()
     {
+        controlVector = Vector2.zero;
         rb2d = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         anim = GetComponent<Animator>();
@@ -40,5 +42,10 @@ Camera cam;
         }
     }
 
-    
+    private void FixedUpdate()
+    {
+        rb2d.velocity = controlVector * speed;
+    }
+
+
 }

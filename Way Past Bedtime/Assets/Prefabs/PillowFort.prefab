@@ -98,10 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d4aacc241595141b11eb31e25c1b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  runTime: 2.5
-  pauseTime: 1
-  detectionRange: 40
+  speed: 0.6
+  runTime: 2
+  pauseTime: 0.7
+  detectionRange: 50
   attacking: 0
   stopped: 0
   lit: 0

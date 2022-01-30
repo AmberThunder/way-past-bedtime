@@ -90,6 +90,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Attack()
     {
+        FacePlayer();
         yield return new WaitForSeconds(runTime);
         SingleAttack();
         attacking = false;
@@ -140,6 +141,14 @@ public class Enemy : MonoBehaviour
         {
             inLight = true;
         }
+        else if (collision.gameObject.tag.Equals("Bat"))
+        {
+            StopAllCoroutines();
+            stopped = true;
+            attacking = false;
+            rb2d.velocity = GetAngleToPlayer() * 30;
+            StartCoroutine(Pause());
+        }
     }
 
     void EnemyInLight()
@@ -165,5 +174,10 @@ public class Enemy : MonoBehaviour
             inLight = false;
             EnemyNotInLight();
         }
+    }
+
+    protected void FacePlayer()
+    {
+        rend.flipX = player.transform.position.x > transform.position.x;
     }
 }

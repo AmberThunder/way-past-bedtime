@@ -48,6 +48,7 @@ public class FlashLightController : MonoBehaviour
     void Start()
     {
         defaultControls.Newactionmap.Flashlight.performed += ToggleFlashLight;
+        defaultControls.Newactionmap.Flashlight.canceled += ToggleFlashLight;
         flicker = flashlight.GetComponent<LightFlicker>();
         flicker.minFlicker = 1;
     }

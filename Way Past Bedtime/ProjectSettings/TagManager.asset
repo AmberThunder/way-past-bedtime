@@ -7,7 +7,7 @@ TagManager:
   - Flashlight
   - Spooky
   - Item
-  - PlayerRayCastHit
+  - Bat
   layers:
   - Default
   - TransparentFX
@@ -20,7 +20,7 @@ TagManager:
   - Wall
   - Enemy
   - Projectile
-  - Bat
+  - 
   - 
   - 
   - 

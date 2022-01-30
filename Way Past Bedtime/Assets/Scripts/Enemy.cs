@@ -55,10 +55,12 @@ public class Enemy : MonoBehaviour
     {
         if ((transform.position - player.transform.position).magnitude < detectionRange)
         {
+            attacking = true;
             StartCoroutine(Attack());
         }
         else
         {
+            stopped = true;
             StartCoroutine(Pause());
         }
     }
@@ -71,11 +73,11 @@ public class Enemy : MonoBehaviour
 
     protected virtual void ContinuousAttack()
     {
-        //generic
+        //Debug.Log("Continuous Attack");
     }
 
     protected virtual void SingleAttack()
     {
-        //generic
+        Debug.Log("Single Attack");
     }
 }
